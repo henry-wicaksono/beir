@@ -7,11 +7,8 @@ from torch.utils.data import DataLoader
 from torch.optim import Optimizer
 from tqdm.autonotebook import trange
 from typing import Dict, List, Callable, Iterable, Tuple
-import logging
 import time
 import random
-
-logger = logging.getLogger(__name__)
 
 class TrainRetriever:
     

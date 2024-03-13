@@ -1,11 +1,9 @@
 from .. import BaseSearch
 from .util import cos_sim, dot_score
-import logging
 import torch
 from typing import Dict
 import heapq
 
-logger = logging.getLogger(__name__)
 
 # DenseRetrievalExactSearch is parent class for any dense model that can be used for retrieval
 # Abstract class is BaseSearch

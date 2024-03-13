@@ -1,13 +1,11 @@
+from typing import Dict, List, Tuple, Union
+
+import numpy as np
+import torch.multiprocessing as mp
 from sentence_transformers import SentenceTransformer
 from torch import Tensor
-import torch.multiprocessing as mp
-from typing import List, Dict, Union, Tuple
-import numpy as np
-import logging
-from datasets import Dataset
-from tqdm import tqdm
 
-logger = logging.getLogger(__name__)
+from datasets import Dataset
 
 
 class SentenceBERT:
@@ -23,7 +21,6 @@ class SentenceBERT:
             self.doc_model = SentenceTransformer(model_path[1])
     
     def start_multi_process_pool(self, target_devices: List[str] = None) -> Dict[str, object]:
-        logger.info("Start multi-process pool on devices: {}".format(', '.join(map(str, target_devices))))
 
         ctx = mp.get_context('spawn')
         input_queue = ctx.Queue()

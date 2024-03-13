@@ -1,9 +1,10 @@
-from tqdm.autonotebook import trange
-from ..util import write_to_json, write_to_tsv
+import os
 from typing import Dict
-import logging, os
 
-logger = logging.getLogger(__name__)
+from tqdm.autonotebook import trange
+
+from ..util import write_to_json, write_to_tsv
+
 
 class PassageExpansion:
     def __init__(self, model, **kwargs):

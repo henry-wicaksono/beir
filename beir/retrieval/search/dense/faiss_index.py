@@ -1,13 +1,11 @@
-from .util import normalize
+import time
 from typing import List, Optional, Tuple, Union
-from tqdm.autonotebook import trange
-import numpy as np
 
 import faiss
-import logging
-import time
+import numpy as np
+from tqdm.autonotebook import trange
 
-logger = logging.getLogger(__name__)
+from .util import normalize
 
 
 class FaissIndex:

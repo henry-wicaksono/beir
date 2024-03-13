@@ -1,10 +1,11 @@
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
-from tqdm.autonotebook import trange
-import torch, logging, math, queue
-import torch.multiprocessing as mp
-from typing import List, Dict
+from typing import Dict, List
 
-logger = logging.getLogger(__name__)
+import math
+import queue
+import torch
+import torch.multiprocessing as mp
+from tqdm.autonotebook import trange
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 
 class QGenModel:
@@ -13,7 +14,6 @@ class QGenModel:
         self.model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
         self.gen_prefix = gen_prefix
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
-        logger.info("Use pytorch device: {}".format(self.device))
         self.model = self.model.to(self.device)
     
     def generate(self, corpus: List[Dict[str, str]], ques_per_passage: int, top_k: int, max_length: int, top_p: float = None, temperature: float = None) -> List[str]:

@@ -1,24 +1,20 @@
-from .. import BaseSearch
-from .util import cos_sim, dot_score
-from sentence_transformers import SentenceTransformer
-from torch.utils.data import DataLoader
-from datasets import Features, Value
-from datasets.utils.filelock import FileLock
-from datasets import Array2D, Dataset
-from tqdm.autonotebook import tqdm
+import importlib.util
+import math
+import os
+import queue
+import time
 from typing import Dict, List
 
-import logging
-import torch
-import math
-import queue
-import os
-import time
 import numpy as np
+import torch
+from datasets.utils.filelock import FileLock
+from sentence_transformers import SentenceTransformer
+from torch.utils.data import DataLoader
+from tqdm.autonotebook import tqdm
 
-logger = logging.getLogger(__name__)
-
-import importlib.util
+from datasets import Array2D, Dataset, Features, Value
+from .util import cos_sim, dot_score
+from .. import BaseSearch
 
 ### HuggingFace Evaluate library (pip install evaluate) only available with Python >= 3.7.
 ### Hence for no import issues with Python 3.6, we move DummyMetric if ``evaluate`` library is found.

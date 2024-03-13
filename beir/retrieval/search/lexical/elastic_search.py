@@ -1,19 +1,13 @@
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
 from typing import Dict, List, Tuple
-import logging
 import tqdm
 import sys
 
-tracer = logging.getLogger('elasticsearch') 
-tracer.setLevel(logging.CRITICAL) # supressing INFO messages for elastic-search
 
 class ElasticSearch(object):
     
     def __init__(self, es_credentials: Dict[str, object]):
-        
-        logging.info("Activating Elasticsearch....")
-        logging.info("Elastic Search Credentials: %s", es_credentials)
         self.index_name = es_credentials["index_name"]
         self.check_index_name()
 
@@ -68,8 +62,6 @@ class ElasticSearch(object):
     def create_index(self):
         """Create Elasticsearch Index
         """
-        logging.info("Creating fresh Elasticsearch-Index named - {}".format(self.index_name))
-        
         try:
             if self.number_of_shards == "default":
                 mapping = {
@@ -91,16 +83,14 @@ class ElasticSearch(object):
                 
             self.es.indices.create(index=self.index_name, body=mapping, ignore=[400]) #400: IndexAlreadyExistsException
         except Exception as e:
-            logging.error("Unable to create Index in Elastic Search. Reason: {}".format(e))
+            pass
     
     def delete_index(self):
         """Delete Elasticsearch Index"""
-        
-        logging.info("Deleting previous Elasticsearch-Index named - {}".format(self.index_name))
         try:
             self.es.indices.delete(index=self.index_name, ignore=[400, 404]) # 404: IndexDoesntExistException
         except Exception as e:
-            logging.error("Unable to create Index in Elastic Search. Reason: {}".format(e))
+            pass
     
     def bulk_add_to_index(self, generate_actions, progress):
         """Bulk indexing to elastic search using generator actions

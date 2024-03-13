@@ -1,7 +1,6 @@
-import logging
-from typing import Dict, List
+from typing import Dict
 
-logger = logging.getLogger(__name__)
+
 
 #Parent class for any reranking model
 class Rerank:
@@ -33,7 +32,6 @@ class Rerank:
                     sentence_pairs.append([queries[query_id], corpus_text])
 
         #### Starting to Rerank using cross-attention
-        logging.info("Starting To Rerank Top-{}....".format(top_k))
         rerank_scores = [float(score) for score in self.cross_encoder.predict(sentence_pairs, batch_size=self.batch_size)]
 
         #### Reranking results

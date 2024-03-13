@@ -1,7 +1,7 @@
-import logging
-from typing import List, Dict, Union, Tuple
+from typing import Dict, List, Tuple
 
-def mrr(qrels: Dict[str, Dict[str, int]], 
+
+def mrr(qrels: Dict[str, Dict[str, int]],
         results: Dict[str, Dict[str, float]], 
         k_values: List[int]) -> Tuple[Dict[str, float]]:
     
@@ -11,7 +11,6 @@ def mrr(qrels: Dict[str, Dict[str, int]],
         MRR[f"MRR@{k}"] = 0.0
     
     k_max, top_hits = max(k_values), {}
-    logging.info("\n")
     
     for query_id, doc_scores in results.items():
         top_hits[query_id] = sorted(doc_scores.items(), key=lambda item: item[1], reverse=True)[0:k_max]   
@@ -26,7 +25,6 @@ def mrr(qrels: Dict[str, Dict[str, int]],
 
     for k in k_values:
         MRR[f"MRR@{k}"] = round(MRR[f"MRR@{k}"]/len(qrels), 5)
-        logging.info("MRR@{}: {:.4f}".format(k, MRR[f"MRR@{k}"]))
 
     return MRR
 
@@ -40,7 +38,6 @@ def recall_cap(qrels: Dict[str, Dict[str, int]],
         capped_recall[f"R_cap@{k}"] = 0.0
     
     k_max = max(k_values)
-    logging.info("\n")
     
     for query_id, doc_scores in results.items():
         top_hits = sorted(doc_scores.items(), key=lambda item: item[1], reverse=True)[0:k_max]   
@@ -52,7 +49,6 @@ def recall_cap(qrels: Dict[str, Dict[str, int]],
 
     for k in k_values:
         capped_recall[f"R_cap@{k}"] = round(capped_recall[f"R_cap@{k}"]/len(qrels), 5)
-        logging.info("R_cap@{}: {:.4f}".format(k, capped_recall[f"R_cap@{k}"]))
 
     return capped_recall
 
@@ -72,8 +68,6 @@ def hole(qrels: Dict[str, Dict[str, int]],
             annotated_corpus.add(doc_id)
     
     k_max = max(k_values)
-    logging.info("\n")
-    
     for _, scores in results.items():
         top_hits = sorted(scores.items(), key=lambda item: item[1], reverse=True)[0:k_max]
         for k in k_values:
@@ -82,7 +76,6 @@ def hole(qrels: Dict[str, Dict[str, int]],
 
     for k in k_values:
         Hole[f"Hole@{k}"] = round(Hole[f"Hole@{k}"]/len(qrels), 5)
-        logging.info("Hole@{}: {:.4f}".format(k, Hole[f"Hole@{k}"]))
 
     return Hole
 
@@ -97,7 +90,6 @@ def top_k_accuracy(
         top_k_acc[f"Accuracy@{k}"] = 0.0
     
     k_max, top_hits = max(k_values), {}
-    logging.info("\n")
     
     for query_id, doc_scores in results.items():
         top_hits[query_id] = [item[0] for item in sorted(doc_scores.items(), key=lambda item: item[1], reverse=True)[0:k_max]]
@@ -112,6 +104,5 @@ def top_k_accuracy(
 
     for k in k_values:
         top_k_acc[f"Accuracy@{k}"] = round(top_k_acc[f"Accuracy@{k}"]/len(qrels), 5)
-        logging.info("Accuracy@{}: {:.4f}".format(k, top_k_acc[f"Accuracy@{k}"]))
 
     return top_k_acc

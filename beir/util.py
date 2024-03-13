@@ -1,14 +1,13 @@
-from typing import Dict
-from tqdm.autonotebook import tqdm
 import csv
-import torch
 import json
-import logging
 import os
-import requests
 import zipfile
+from typing import Dict
 
-logger = logging.getLogger(__name__)
+import requests
+import torch
+from tqdm.autonotebook import tqdm
+
 
 def dot_score(a: torch.Tensor, b: torch.Tensor):
     """
@@ -84,11 +83,9 @@ def download_and_unzip(url: str, out_dir: str, chunk_size: int = 1024) -> str:
     zip_file = os.path.join(out_dir, dataset)
     
     if not os.path.isfile(zip_file):
-        logger.info("Downloading {} ...".format(dataset))
         download_url(url, zip_file, chunk_size)
     
     if not os.path.isdir(zip_file.replace(".zip", "")):
-        logger.info("Unzipping {} ...".format(dataset))
         unzip(zip_file, out_dir)
     
     return os.path.join(out_dir, dataset.replace(".zip", ""))

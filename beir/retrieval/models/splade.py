@@ -1,14 +1,12 @@
-import logging
-from typing import List, Dict, Union
+from typing import Dict, List, Union
+
 import numpy as np
 import torch
 from numpy import ndarray
+from sentence_transformers.util import batch_to_device
 from torch import Tensor
 from tqdm.autonotebook import trange
 from transformers import AutoModelForMaskedLM, AutoTokenizer
-from sentence_transformers.util import batch_to_device
-
-logger = logging.getLogger(__name__)
 
 
 class SPLADE:

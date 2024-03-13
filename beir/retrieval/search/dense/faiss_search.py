@@ -1,14 +1,14 @@
-from .. import BaseSearch
-from .util import save_dict_to_tsv, load_tsv_to_dict
-from .faiss_index import FaissBinaryIndex, FaissTrainIndex, FaissHNSWIndex, FaissIndex
-import logging
-import faiss
-import numpy as np
 import os
 from typing import Dict
+
+import faiss
+import numpy as np
 from tqdm.autonotebook import tqdm
 
-logger = logging.getLogger(__name__)
+from .faiss_index import FaissBinaryIndex, FaissHNSWIndex, FaissIndex, FaissTrainIndex
+from .util import load_tsv_to_dict, save_dict_to_tsv
+from .. import BaseSearch
+
 
 #Parent class for any faiss search
 class DenseRetrievalFaissSearch(BaseSearch):

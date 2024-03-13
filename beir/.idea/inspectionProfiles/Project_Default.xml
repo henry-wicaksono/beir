@@ -1,0 +1,113 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="pydantic" />
+            <item index="1" class="java.lang.String" itemvalue="websockets" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W605" />
+          <option value="E305" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N812" />
+          <option value="N803" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="bytes.read" />
+          <option value="bs4.element.PageElement.decompose" />
+          <option value="column_name" />
+          <option value="mappings" />
+          <option value="URL_TEMPLATE" />
+          <option value="CONTEXT_DOCUMENT_SEPARATOR" />
+          <option value="None" />
+          <option value="gdplabs_gen_ai.retrieval.query_transformer.transform.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.retrieval.retriever.get_relevant_documents.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.retrieval.reranker.get_reranked_documents.assert_called_once_with" />
+          <option value="backend.main.module.use_case_handler.recursive_summarizer.process_message.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.retrieval.reranker.get_reranked_documents.assert_not_called" />
+          <option value="backend.main.module.use_case_handler.recursive_summarizer.process_message.assert_not_called" />
+          <option value="main.module.use_case_handler.recursive_summarizer.process_message.assert_not_called" />
+          <option value="main.module.use_case_handler.recursive_summarizer.process_message.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.inference_orchestrator.llm.generate_response.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.retrieval.retriever.get_relevant_documents.call_count" />
+          <option value="main.module.use_case_handler.process_message.assert_called_once_with" />
+          <option value="main.module.use_case_handler.summarization.get_history_chat.assert_called_once_with" />
+          <option value="gdplabs_gen_ai.inference_orchestrator.llm.count_token.call_count" />
+          <option value="gdplabs_gen_ai.inference_orchestrator.llm.generate_response.assert_has_calls" />
+          <option value="main.module.use_case_handler.process_message.call_count" />
+          <option value="main.module.use_case_handler.summarization.get_history_chat.call_count" />
+          <option value="gdplabs_gen_ai.inference_orchestrator.llm.generate_response.call_count" />
+          <option value="main.module.use_case_handler.run_handler.assert_called_once_with" />
+          <option value="main.module.use_case_handler.run_handler.call_count" />
+          <option value="main.module.use_case_handler.util.get_history_chat.call_count" />
+          <option value="main.module.use_case_handler.util.get_history_chat.assert_called_once_with" />
+          <option value="main.module.use_case_handler.utils.get_history_chat.call_count" />
+          <option value="count_token" />
+          <option value="separator" />
+          <option value="tests.module.use_case_handler.utils.generate_response.assert_called_once_with" />
+          <option value="history_limit_page" />
+          <option value="context_top_k" />
+          <option value="model_max_input_token" />
+          <option value="model_max_context_token" />
+          <option value="model_max_history_token" />
+          <option value="model_max_output_token" />
+          <option value="splitter_chunk_size" />
+          <option value="splitter_chunk_overlap" />
+          <option value="main.helper.message_helper.get_history_chat.assert_called_once_with" />
+          <option value="main.helper.message_helper.get_history_chat.call_count" />
+          <option value="main.module.context_processor.get_formatted_context.call_count" />
+          <option value="main.module.context_processor.get_formatted_context.assert_called_once_with" />
+          <option value="default_hyperparameters" />
+          <option value="main.module.retrieval.reranker.base.get_reranked_documents.assert_called_once_with" />
+          <option value="dict.__setitem__" />
+          <option value="experiment_name" />
+          <option value="result_path" />
+          <option value="gsheet_private_key" />
+          <option value="gsheet_client_email" />
+          <option value="test_data_sheet_id" />
+          <option value="test_data_worksheet_id" />
+          <option value="test_data_cell_ranges" />
+          <option value="prompt_sheet_id" />
+          <option value="prompt_worksheet_id" />
+          <option value="prompt_cell_ranges" />
+          <option value="prompt_topic" />
+          <option value="tgi_url" />
+          <option value="tgi_username" />
+          <option value="tgi_password" />
+          <option value="main.module.routing.regex_with_llm_fallback_router.route.call_count" />
+          <option value="message" />
+          <option value="need_history" />
+          <option value="need_retrieval" />
+          <option value="embedded_context" />
+          <option value="validation_schema" />
+          <option value="main.module.context_processor.base.get_formatted_context.call_count" />
+          <option value="conversation_id" />
+          <option value="limit_page" />
+          <option value="model_name" />
+          <option value="es_url" />
+          <option value="es_username" />
+          <option value="es_password" />
+          <option value="es_index_name" />
+          <option value="top_k" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

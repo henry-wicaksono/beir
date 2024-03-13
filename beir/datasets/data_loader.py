@@ -1,11 +1,10 @@
-from typing import Dict, Tuple
-from tqdm.autonotebook import tqdm
+import csv
 import json
 import os
-import logging
-import csv
+from typing import Dict, Tuple
 
-logger = logging.getLogger(__name__)
+from tqdm.autonotebook import tqdm
+
 
 class GenericDataLoader:
     

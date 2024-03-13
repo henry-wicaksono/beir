@@ -1,13 +1,11 @@
-from transformers import BertLMHeadModel, BertTokenizer, DataCollatorWithPadding
-from tqdm.autonotebook import trange
-import torch, logging, math, queue
-import torch.multiprocessing as mp
-from typing import List, Dict
-from nltk.corpus import stopwords
-import numpy as np
 import re
+from typing import Dict, List
 
-logger = logging.getLogger(__name__)
+import numpy as np
+import torch
+from nltk.corpus import stopwords
+from transformers import BertLMHeadModel, BertTokenizer
+
 
 class TILDE:
     def __init__(self, model_path: str, gen_prefix: str = "", use_fast: bool = True, device: str = None, **kwargs):
