@@ -1,10 +1,8 @@
 import pytrec_eval
-import logging
 from typing import List, Dict, Tuple
 from .search.base import BaseSearch
 from .custom_metrics import mrr, recall_cap, hole, top_k_accuracy
 
-logger = logging.getLogger(__name__)
 
 class EvaluateRetrieval:
     
